@@ -18,7 +18,7 @@ namespace LoginWebAPI.Controllers
         [HttpPost]
         public IActionResult Register([FromBody] ReqRegisterDto dto)
         {
-            Account account = new Account() { AccountId = dto.Id, AccountPw = dto.Password };
+            Account account = new Account() { UserName = dto.UserName, Password = dto.Password };
             _context.Account.Add(account);
             _context.SaveChanges();
 

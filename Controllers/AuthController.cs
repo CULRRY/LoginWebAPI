@@ -41,7 +41,7 @@ namespace LoginWebAPI.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] LoginReqDto dto)
         {
-            var acc = _context.Account.FirstOrDefault(a => a.AccountId == dto.Id);
+            var acc = _context.Account.FirstOrDefault(a => a.UserName == dto.UserName);
 
 
             if (acc == null)
@@ -51,7 +51,7 @@ namespace LoginWebAPI.Controllers
 
             
 
-            if (acc.AccountPw != dto.Password)
+            if (acc.Password != dto.Password)
             {
                 return Unauthorized(new { error = "Invalid password." });
             }

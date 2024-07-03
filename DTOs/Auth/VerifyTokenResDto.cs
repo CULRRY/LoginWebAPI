@@ -7,7 +7,7 @@ namespace LoginWebAPI.DTOs.Auth
         [JsonPropertyName("id")]
         public UInt64 Id { get; set; }
 
-        [JsonPropertyName("account_id")]
-        public string accountId { get; set; }
+        [JsonPropertyName("username")]
+        public string UserName { get; set; }
     }
 }

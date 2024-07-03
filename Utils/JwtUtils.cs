@@ -14,7 +14,7 @@ namespace LoginWebAPI.Utils
     public class ValidationResult
     {
         public UInt64 Id { get; set; }
-        public string AccountId { get; set; }
+        public string UserName { get; set; }
     }
 
     public class JwtUtils
@@ -44,7 +44,7 @@ namespace LoginWebAPI.Utils
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, account.Id.ToString()),
-                new Claim("accountId", account.AccountId),
+                new Claim("username", account.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
@@ -69,7 +69,7 @@ namespace LoginWebAPI.Utils
                 JwtSecurityToken tt = (JwtSecurityToken)validToken;
                 var result = new ValidationResult()
                 {
-                    AccountId = tt.Claims.FirstOrDefault(c => c.Type == "accountId")!.Value,
+                    UserName = tt.Claims.FirstOrDefault(c => c.Type == "username")!.Value,
                     Id = UInt64.Parse(tt.Claims.FirstOrDefault(c => c.Type == JwtRegisteredClaimNames.Sub)!.Value)
                 };
 

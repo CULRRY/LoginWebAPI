@@ -23,14 +23,14 @@ namespace LoginWebAPI
         [Column(name: "id")]
         public UInt64 Id {get; set; }
 
-        [Column(name: "accountId")]
+        [Column(name: "username")]
         [Required(ErrorMessage = "사용자 아이디를 입력하세요.")]
-        public string AccountId {get; set; }
+        public string UserName {get; set; }
 
         
-        [Column(name: "accountPw")]
+        [Column(name: "password")]
         [Required(ErrorMessage = "사용자 비밀번호를 입력하세요.")]
-        public string AccountPw {get; set; }
+        public string Password {get; set; }
 
     }
 }
